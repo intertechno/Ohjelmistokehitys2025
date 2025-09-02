@@ -13,3 +13,6 @@ testiFunktio(1, 2);
 
 console.log("----------------");
 testiFunktio(1, 2, 3, 4);
+
+console.log("----------------");
+testiFunktio(true, [1, 2], "ABC", null);
