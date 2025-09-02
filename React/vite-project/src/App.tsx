@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Hello from './Hello'
 import Warning from './Warning'
+import UserList from './UserListFetch'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <Hello />
+      <UserList />
       <Warning message="Eka varoitus!" />
       <Warning message="Toka varoitus!" />
       <div className="card">
