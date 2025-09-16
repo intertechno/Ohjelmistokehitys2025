@@ -1,11 +1,15 @@
-﻿Console.WriteLine("Merkkijonon käsittely alkaa...");
+﻿using System.Text;
+
+Console.WriteLine("Merkkijonon käsittely alkaa...");
 
 DateTime alku = DateTime.Now;
-string s = "";
+StringBuilder rakentaja = new();
 for (int i = 0; i < 600_000; i++)
 {
-    s = s + "A";
+    rakentaja.Append('A');
 }
+string merkkijono = rakentaja.ToString();
+Console.WriteLine($"Merkkijonon pituus: {merkkijono.Length}");
 DateTime loppu = DateTime.Now;
 
 // tulokset
