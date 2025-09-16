@@ -5,3 +5,5 @@
 /.vs
 /DotNet/HelloWorld/bin/Debug/net9.0
 /DotNet/HelloWorld/obj
+/DotNet/HelloWorld2/bin/Debug/net9.0
+/DotNet/HelloWorld2/obj
