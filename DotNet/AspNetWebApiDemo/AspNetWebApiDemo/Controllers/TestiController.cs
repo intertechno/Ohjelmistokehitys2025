@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetWebApiDemo.Mallit;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetWebApiDemo.Controllers
 {
@@ -21,10 +22,30 @@ namespace AspNetWebApiDemo.Controllers
         }
 
         [HttpPatch]
-        [Route("kokeilu")]
-        public string KolmasTesti()
+        [Route("kokeilu/{asiakasNro}")]
+        public string KolmasTesti(int asiakasNro)
         {
-            return "Kolmas metodi";
+            return "Kolmas metodi:" + asiakasNro;
+        }
+
+        [HttpGet]
+        public List<int> NeljäsTesti()
+        {
+            return [1, 2, 3];
+        }
+
+        [HttpGet]
+        [Route("asiakkaat")]
+        public List<Asiakas> AsiakasTesti()
+        {
+            // lista kuvitteellisesta asiakkaista
+            List<Asiakas> asiakkaat =
+            [
+                new Asiakas() { AsiakasId = 1, AsiakkaanNimi = "M. Möttönen", AsiakkaanSähköpostiosoite = "matti@kotinetti.fi" },
+                new Asiakas() { AsiakasId = 2, AsiakkaanNimi = "L. Laskettelija", AsiakkaanSähköpostiosoite = "liisa@kotinetti.fi" },
+            ];
+
+            return asiakkaat;
         }
     }
 }
