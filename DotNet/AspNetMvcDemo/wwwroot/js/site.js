@@ -1,4 +1,7 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function calculateSum() {
+    let sum = 0;
+    let num1 = document.getElementById("num1").value;
+    let num2 = document.getElementById("num2").value;
+    sum = parseInt(num1) + parseInt(num2);
+    alert("Summa on: " + sum);
+}
