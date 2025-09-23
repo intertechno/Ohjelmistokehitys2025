@@ -33,7 +33,7 @@ app.get('/api/asiakkaat', (req, res) => {
     database.close();
 
     res.json(tulokset);
-    
+
     /*
     const results = [];
 
@@ -45,6 +45,31 @@ app.get('/api/asiakkaat', (req, res) => {
         res.json(rows);
     });
     */
+});
+
+app.get('/api/asiakkaatMaittain/:country', (req, res) => {
+    const country = req.params.country;
+    const database = new DatabaseSync("northwind.db");
+
+    // väärä ja vaarallinen tapa! SQL-injektio mahdollinen
+    // const query = database.prepare("SELECT * FROM Customers WHERE Country = '" + country + "'");
+
+    const query = database.prepare("SELECT * FROM Customers WHERE Country = ?");
+    const tulokset = query.all(country);
+    database.close();
+
+    res.json(tulokset);
+});
+
+app.get('/api/tilaukset/:customerId', (req, res) => {
+    const customerId = req.params.customerId;
+    const database = new DatabaseSync("northwind.db");
+
+    const query = database.prepare("SELECT * FROM Orders WHERE CustomerID = ?");
+    const tulokset = query.all(customerId);
+    database.close();
+
+    res.json(tulokset);
 });
 
 app.listen(port, () => {
