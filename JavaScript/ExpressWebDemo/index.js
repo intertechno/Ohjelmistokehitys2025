@@ -1,6 +1,7 @@
-const csv = require('csv-parser')
+const csv = require('csv-parser');
+const { DatabaseSync } = require("node:sqlite");
 const express = require('express');
-const fs = require('fs')
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,28 @@ app.get('/api/henkilot', (req, res) => {
         .on('end', () => {
             res.json(results);
         });
+});
+
+app.get('/api/asiakkaat', (req, res) => {
+    const database = new DatabaseSync("northwind.db");
+
+    const query = database.prepare("SELECT * FROM Customers");
+    const tulokset = query.all();
+    database.close();
+
+    res.json(tulokset);
+    
+    /*
+    const results = [];
+
+    database.prepare("SELECT * FROM Customers").all((err, rows) => {
+        if (err) {
+            res.status(500).json({ error: 'Internal Server Error' });
+            return;
+        }
+        res.json(rows);
+    });
+    */
 });
 
 app.listen(port, () => {
