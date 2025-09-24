@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Logger } from '@nestjs/common';
+import { Controller, Get, Post, Put, Logger } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -16,5 +16,10 @@ export class AppController {
   @Post()
   createHello(): string {
     return "Hello from POST!";
+  }
+
+  @Put()
+  updateHello(): string {
+    return "Hello from PUT!";
   }
 }

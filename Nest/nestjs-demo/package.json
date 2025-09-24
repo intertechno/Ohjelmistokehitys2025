@@ -23,6 +23,7 @@
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.2.0",
     "pino": "^9.11.0",
     "pino-http": "^10.5.0",
     "pino-nestjs": "^0.1.3",
