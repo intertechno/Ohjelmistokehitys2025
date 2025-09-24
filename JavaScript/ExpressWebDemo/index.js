@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/hello', (req, res) => {
+    // throw new Error("Testi virheestä");
     res.json({ message: 'Hello, JSON!' });
 });
 
@@ -21,6 +22,7 @@ app.get('/api/henkilot', (req, res) => {
         .pipe(csv())
         .on('data', (data) => results.push(data))
         .on('end', () => {
+            throw new Error("Testi virheestä");
             res.json(results);
         });
 });
@@ -50,6 +52,8 @@ app.get('/api/asiakkaat', (req, res) => {
 app.get('/api/asiakkaatMaittain/:country', (req, res) => {
     const country = req.params.country;
     const database = new DatabaseSync("northwind.db");
+
+    throw new Error("Testi virheestä");
 
     // väärä ja vaarallinen tapa! SQL-injektio mahdollinen
     // const query = database.prepare("SELECT * FROM Customers WHERE Country = '" + country + "'");
