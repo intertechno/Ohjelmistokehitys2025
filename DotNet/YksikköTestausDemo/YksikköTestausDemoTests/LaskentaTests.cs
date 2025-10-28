@@ -56,5 +56,24 @@ namespace YksikköTestausDemo.Tests
             // assert
             Assert.AreEqual(odotettuTulos, tulos);
         }
+
+        [TestMethod()]
+        public void LukujenSummaTest_NegatiivinenLuku()
+        {
+            // arrange
+            Laskenta laskenta = new();
+            string luvut = "1,2,-3,4";
+
+            // act
+            try
+            {
+                _ = laskenta.LukujenSumma(luvut);
+                Assert.Fail("ArgumentOutOfRangeException-poikkeusta ei heitetty.");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                // poikkeus on odotettu, ei tehdä mitään
+            }
+        }
     }
 }

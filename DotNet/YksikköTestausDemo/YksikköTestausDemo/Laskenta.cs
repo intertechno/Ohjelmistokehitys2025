@@ -25,7 +25,13 @@ namespace YksikköTestausDemo
             int summa = 0;
             foreach (string osa in osat)
             {
-                summa += int.Parse(osa);
+                int luku = int.Parse(osa);
+                if (luku < 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Negatiiviset luvut eivät ole sallittuja: {luku}.");
+                }
+
+                summa += luku;
             }
 
             return summa;
