@@ -12,5 +12,10 @@ namespace YksikköTestausDemo
         {
             return a + b;
         }
+
+        public int LukujenSumma(string luvut)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
