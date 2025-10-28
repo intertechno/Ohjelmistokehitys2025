@@ -14,7 +14,17 @@ namespace YksikköTestausDemo.Tests
         [TestMethod()]
         public void SummaTest()
         {
-            Assert.Fail();
+            // arrange
+            Laskenta laskenta = new();
+            int a = 5;
+            int b = 10;
+            int odotettuTulos = a + b;
+
+            // act
+            int tulos = laskenta.Summa(a, b);
+
+            // assert
+            Assert.AreEqual(odotettuTulos, tulos);
         }
     }
 }
