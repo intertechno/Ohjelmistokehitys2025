@@ -15,7 +15,14 @@ namespace YksikköTestausDemo
 
         public int LukujenSumma(string luvut)
         {
-            throw new NotImplementedException();
+            string[] osat = luvut.Split(',');
+            int summa = 0;
+            foreach (string osa in osat)
+            {
+                summa += int.Parse(osa);
+            }
+
+            return summa;
         }
     }
 }
