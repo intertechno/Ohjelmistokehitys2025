@@ -15,6 +15,12 @@ namespace YksikköTestausDemo
 
         public int LukujenSumma(string luvut)
         {
+            // jos syöte on tyhjä, palautetaan 0
+            if (luvut == "")
+            {
+                return 0;
+            }
+
             string[] osat = luvut.Split(',');
             int summa = 0;
             foreach (string osa in osat)

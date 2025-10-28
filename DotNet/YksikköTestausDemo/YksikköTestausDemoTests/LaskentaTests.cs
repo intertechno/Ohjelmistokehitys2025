@@ -41,5 +41,20 @@ namespace YksikköTestausDemo.Tests
             // assert
             Assert.AreEqual(odotettuTulos, tulos);
         }
+
+        [TestMethod()]
+        public void LukujenSummaTest_Tyhjä()
+        {
+            // arrange
+            Laskenta laskenta = new();
+            string luvut = "";
+            int odotettuTulos = 0;
+
+            // act
+            int tulos = laskenta.LukujenSumma(luvut);
+
+            // assert
+            Assert.AreEqual(odotettuTulos, tulos);
+        }
     }
 }
